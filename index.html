@@ -5688,7 +5688,7 @@ class Screens {
     ctx.strokeStyle = '#6b4a00'; ctx.lineWidth = 2; ctx.stroke();
     UI.text(ctx, 'AN SJWD ADVENTURE', C.W / 2, ry + 27, { size: 26, align: 'center', color: '#3a2600', outline: 'rgba(255,245,200,0.8)', ow: 2 });
 
-    UI.text(ctx, 'Help the team trace contaminants from faucet to source', C.W / 2, 216, { size: 15, align: 'center' });
+    UI.text(ctx, 'Help the team trace contaminants from faucet to watershed', C.W / 2, 216, { size: 15, align: 'center' });
 
     // Hero and a lead blob on the ground
     const groundY = 14 * TS;
@@ -5771,7 +5771,7 @@ class Screens {
     UI.text(ctx, last ? 'WQT: MISSION COMPLETE!' : 'DISTRICT CLEAN!', C.W / 2, c.y + 60, { size: last ? 28 : 32, align: 'center', color: '#ffe066' });
     UI.text(ctx, world.name.toUpperCase(), C.W / 2, c.y + 92, { size: 16, align: 'center', color: world.color });
     UI.text(ctx, last ? 'The Water Quality Team traced every contaminant' : 'The boss is beaten and the water runs clean.', C.W / 2, c.y + 132, { size: 13, align: 'center', outline: null });
-    UI.text(ctx, last ? 'from faucet to source. The water runs clean!' : 'The community thanks you!', C.W / 2, c.y + 152, { size: 13, align: 'center', outline: null });
+    UI.text(ctx, last ? 'from faucet to watershed. The water runs clean!' : 'The community thanks you!', C.W / 2, c.y + 152, { size: 13, align: 'center', outline: null });
     if (!last) {
       UI.panel(ctx, C.W / 2 - 150, c.y + 176, 300, 32, 10, 'rgba(255,255,255,0.08)', C.WORLDS[worldIdx + 1].color);
       UI.text(ctx, `UNLOCKED: ${C.WORLDS[worldIdx + 1].name}`, C.W / 2, c.y + 197, { size: 13, align: 'center', color: '#ffffff' });
