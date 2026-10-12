@@ -1151,6 +1151,9 @@ function drawShadow(ctx, x, y, rx, alpha = 0.28) {
   ctx.fill();
 }
 
+// Worker skin palette: light "water" blue
+const SKIN = { base: '#a6d8f2', shade: '#80b9dc', ear: '#8cc5e6', nose: '#93cbe9', mouth: '#3f6f99' };
+
 // ─────────────────────────────────────────────────────────────────────────────
 // PLAYER — SJWD utility worker
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1631,7 +1634,7 @@ class Player extends Entity {
       ctx.translate(back ? -3.5 : 2.5, shY + 1);
       ctx.rotate(-ang);
       part(-2.3, -1.5, 4.6, 7.5, 2, back ? '#24548f' : '#2f6db5');  // sleeve
-      part(-2, 5, 4, 3.5, 1.2, back ? '#c79a7a' : '#efc19c');       // forearm
+      part(-2, 5, 4, 3.5, 1.2, back ? SKIN.shade : SKIN.base);     // forearm
       ctx.beginPath();
       ctx.arc(0, 9.6, 2.7, 0, Math.PI * 2);                          // work glove
       ctx.fillStyle = col(back ? '#b88e1e' : '#e3b52b');
@@ -1723,14 +1726,14 @@ class Player extends Entity {
       }
       ctx.restore();
     }
-    part(hx - 5.5, hy, 11.5, 10.5, 3.2, '#efc19c');
+    part(hx - 5.5, hy, 11.5, 10.5, 3.2, SKIN.base);
     if (!mono) {
       ctx.fillStyle = fem ? '#7a4228' : '#5b3a24';          // hair at back
       ctx.fillRect(hx - 5.5, hy + 1.5, fem ? 4 : 3, fem ? 7 : 4.5);
       if (fem) { ctx.fillRect(hx - 0.5, hy + 0.8, 6, 1.6); } // bangs under the brim
-      ctx.fillStyle = '#d9a37f';                            // ear
+      ctx.fillStyle = SKIN.ear;                             // ear
       ctx.beginPath(); ctx.ellipse(hx - 1.5, hy + 5.4, 1.4, 1.9, 0, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = '#e2ad88';                            // nose
+      ctx.fillStyle = SKIN.nose;                            // nose
       ctx.fillRect(hx + 5.6, hy + 4.6, 1.6, 2.2);
       if (a.blink > 0 || a.state === 'hurt') {
         ctx.fillStyle = '#1b1b1b';
@@ -1744,7 +1747,7 @@ class Player extends Entity {
       }
       ctx.fillStyle = '#6b4630';                            // brow
       ctx.fillRect(hx + 2.2, hy + 1.9, 3, 0.9);
-      ctx.fillStyle = fem ? '#c0525a' : '#9c5b45';          // mouth
+      ctx.fillStyle = fem ? '#c0525a' : SKIN.mouth;         // mouth
       ctx.fillRect(hx + 3, hy + 7.6, a.state === 'hurt' ? 2.2 : 2.6, a.state === 'hurt' ? 1.6 : 0.8);
     }
 
